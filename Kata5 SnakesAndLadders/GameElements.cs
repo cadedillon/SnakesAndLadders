@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kata5_SnakesAndLadders
+namespace SnakesAndLadders
 {
     class GameElements
     {
@@ -66,7 +66,7 @@ namespace Kata5_SnakesAndLadders
             else if (playerPosition == 7)
             {
                 playerPosition = 14;
-                Console.WriteLine(format + "Congratulations! You've hit a ladder on square 14 and moved up to square 14!");
+                Console.WriteLine(format + "Congratulations! You've hit a ladder on square 7 and moved up to square 14!");
             }
             else if (playerPosition == 8)
             {

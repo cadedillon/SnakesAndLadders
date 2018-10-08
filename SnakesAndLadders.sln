@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata5 SnakesAndLadders", "Kata5 SnakesAndLadders\Kata5 SnakesAndLadders.csproj", "{009F8C6D-FBCB-4E7F-BAD9-413B30F0FC76}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnakesAndLadders", "Kata5 SnakesAndLadders\SnakesAndLadders.csproj", "{009F8C6D-FBCB-4E7F-BAD9-413B30F0FC76}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

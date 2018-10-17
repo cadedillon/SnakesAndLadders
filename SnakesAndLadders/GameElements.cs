@@ -10,21 +10,28 @@ namespace SnakesAndLadders
     {
         public static string format = "\n\t";
         public static string lineBreak = "-----------------------------------------------";
-           
+
+        //The DiceRoll method simulates rolling two six-sided dice 
+        //with the Random.Next(int, int) method overload.
+        //The second int parameter is greater than 6 because it is exclusive 
+        //(meaning it will generate a number upto but not equal to the second parameter)
         public static int[] DiceRoll()
         {
-            Random ran = new Random();
+            Random random = new Random();
             int[] dieRoll = new int[2];
             for (int i = 0; i < dieRoll.Length; i++)
             {
-                dieRoll[i] = ran.Next(1, 7);
+                dieRoll[i] = random.Next(1, 7);
             }
 
             Console.WriteLine(format + $"The die rolls are: {dieRoll[0]} and {dieRoll[1]}");
-
+            //Return the result of the DiceRoll as an int[]
             return dieRoll;
         }
 
+        //The move piece method takes the int[] dieRoll as a parameter
+        //and sums the contents together to calculate how far forward from their current space 
+        //the user should move forward
         public static int MovePiece(int[] dieRoll)
         {
             int moveForward = 0;
@@ -33,7 +40,10 @@ namespace SnakesAndLadders
             {
                 moveForward += dieRoll[i];
             }
-
+            //As per the rules of Snakes and Ladders, if the die roll returns two of the same number
+            //The user gets to roll again and move forward the sum of all 4 die rolls
+            //This if statement determines if a double condition exists, and if it does,
+            //Generates a second int[] with another DiceRoll() method call
             if (dieRoll[0] == dieRoll[1])
             {
                 Console.WriteLine(format + "For rolling a double, you get to take another roll. Press any key to roll again.");
@@ -45,10 +55,15 @@ namespace SnakesAndLadders
                 }
             }
 
+            //After summing the results of all die rolls, return the number of spaces the player moves forward as an integer.
             Console.WriteLine(format + $"Move forward {moveForward} spaces.");
             return moveForward;
         }
 
+        //The check position method takes the current player's position as an integer
+        //and if the position equals one of the special spaces on the board that contain a snake or a ladder,
+        //the user is moved to the corresponding space and end their turn there.
+        //This method also checks whether the user has overshot space 100, and if they have, calculates how far they should bounce back.
         public static int CheckPosition(int playerPosition)
         {
             if (playerPosition > 100)
@@ -164,7 +179,7 @@ namespace SnakesAndLadders
                 playerPosition = 80;
                 Console.WriteLine(format + "Too bad! You've hit a snake on square 99 and slid down to square 80!");
             }
-
+            //Return the final player position as an integer
             return playerPosition;
         }
     }

@@ -29,11 +29,11 @@ namespace SnakesAndLadders
             {
                 Console.WriteLine(format + fEx.Message);
             }
-
+            //I included a finally block so that my Application will exit gracefully even if an exception occurs 
             finally
             {
                 Console.WriteLine(format + "Thanks so much for checking out my application!");
-                Console.WriteLine(format + "Be sure to check out the rest of my portfolio at github.com/cadedillon!");
+                Console.WriteLine(format + "Be sure to check out the rest of my portfolio at https://github.com/cadedillon!");
             }
             
 

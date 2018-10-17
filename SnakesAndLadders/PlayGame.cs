@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace SnakesAndLadders
 {
-    class PlayGame
+    //The PlayGame class contains the methods that do most of the work in the Application
+class PlayGame
     {
         public static string format = "\n\t";
         public static string lineBreak = "-----------------------------------------------";
 
+        //GameStart initializes the players and their positions (both start at 0)
+        //and then enters into a while loop based on the winner boolean
+        //While winner is false, the while loop will call the PlayerTurn method once for player 1 and once for player 2
+        //If one of the players ends their turn on square 100, winner becomes = true and the loop ends
         public static void GameStart()
         {
             int player1 = 1;
@@ -48,10 +53,18 @@ namespace SnakesAndLadders
                 }
 
             }
-
+            //At the end of GameStart, control is passed to PlayAgain
+            //which is a simple method that asks the user if they want to play again
+            //if yes, the program starts over at GameStart()
+            //if no, the program exits gracefully
             PlayAgain();
         }
 
+        //The PlayerTurn method takes the current player and their position as parameters
+        //It creates a new instance of the GameElements class and generates the value of a dice roll
+        //By initializing an array with the results of the DiceRoll() method.
+        //It then calculates how many positions to move forward based on the dice roll
+        //and then calculates the final position of the player at the end of their turn.
         public static int PlayerTurn(int player, int position)
         {
             GameElements game = new GameElements();
@@ -65,7 +78,9 @@ namespace SnakesAndLadders
             Console.WriteLine(format + lineBreak);
             return finalPos;
         }
-
+        //PlayAgain is a simple method that asks if the user wants to play another game of Snakes and Ladders
+        //returning control to the GameStart method if they do.
+        //If they don't want to play again, the method returns void and control is passed to the finally block of the Main method.
         public static void PlayAgain()
         {
             Console.WriteLine(format + "Would you like to play again?");
